@@ -11,6 +11,14 @@ public class RegularCustomer extends Customer {
 
     @Override
     public String toString() {
-        return "Regular " + super.toString();
+        return String.format(
+            "┌─ Regular Customer ──────────────┐%n" +
+            "│ ID: %-4d                        │%n" +
+            "│ Name: %-25s │%n" +
+            "│ Email: %-24s │%n" +
+            "│ Balance: $%-20.2f  │%n" +
+            "└─────────────────────────────────┘",
+            getId(), getName(), getEmail(), getBalance()
+        );
     }
 }

@@ -94,7 +94,7 @@ public class Order {
     public void addOrderItem(MenuItem item) {
         if (item != null) {
             this.items.add(item);
-            System.out.println(calculateBill()); // Recalculate total when items are added
+            System.out.println("Total after adding item $" + calculateBill()); // Recalculate total when items are added
         }
     }
 
@@ -109,13 +109,19 @@ public class Order {
     // Override toString() method
     @Override
     public String toString() {
-        return "Order{" +
-                "orderId = " + orderId +
-                ", customer = " + (customer != null ? customer.getName() : "null") +
-                ", restaurant = " + (restaurant != null ? restaurant.getName() : "null") +
-                ", orderItems = " + items.size() +
-                ", totalAmount = " + calculateBill() +
-                ", status = '" + status +
-                '}';
+        return String.format(
+            "┌─ Order #%-3d ─────────────────────┐%n" +
+            " Customer: %-22s %n" +
+            " Restaurant: %-20s %n" +
+            " Items: %-2d | Total: $%-10.2f %n" +
+            " Status: %-24s %n" +
+            "└─────────────────────────────────┘",
+            orderId,
+            customer != null ? customer.getName() : "null",
+            restaurant != null ? restaurant.getName() : "null",
+            items.size(),
+            calculateBill(),
+            status
+        );
     }
 }

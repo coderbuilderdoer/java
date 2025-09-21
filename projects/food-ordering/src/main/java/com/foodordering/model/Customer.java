@@ -77,11 +77,14 @@ public class Customer {
     // Override toString() method
     @Override
     public String toString() {
-        return "Customer{" +
-                "id=" + id +
-                ", name = '" + name + '\'' +
-                ", email = '" + email + '\'' +
-                ", balance = '" + balance + '\'' +
-                '}';
+        return String.format(
+            "┌─ Customer ──────────────────────┐%n" +
+            "│ ID: %-4d                        │%n" +
+            "│ Name: %-25s │%n" +
+            "│ Email: %-24s │%n" +
+            "│ Balance: $%-20.2f  │%n" +
+            "└─────────────────────────────────┘",
+            id, name, email, balance
+        );
     }
 }

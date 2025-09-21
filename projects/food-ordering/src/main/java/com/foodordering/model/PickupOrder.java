@@ -19,6 +19,21 @@ public class PickupOrder extends Order{
 
     @Override
     public String toString() {
-        return "Pickup " + super.toString();
+        return String.format(
+            "┌─  Pickup Order #%-3d ───────────┐%n" +
+            " Customer: %-22s %n" +
+            " Restaurant: %-20s %n" +
+            " Items: %-2d | Total: $%-10.2f %n" +
+            " Status: %-24s %n" +
+            " Pickup at: %-22s %n" +
+            "└─────────────────────────────────┘",
+            orderId,
+            customer != null ? customer.getName() : "null",
+            restaurant != null ? restaurant.getName() : "null",
+            items.size(),
+            calculateBill(),
+            status,
+            restaurant != null ? restaurant.getName() : "null"
+        );
     }
 }

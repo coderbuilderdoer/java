@@ -15,14 +15,14 @@ public class OrderProcessor extends Thread{
     @Override
     public void run() {
         try {
-            System.out.println("Processing order #" + order.getOrderId() + " on thread: " + Thread.currentThread().getName());
+            System.out.println(" [ORDER] Processing order #" + order.getOrderId() + " (Thread: " + Thread.currentThread().getName() + ")");
             // Simulate processing time
             Thread.sleep(2000);
             // Process the order
             order.processOrder();
-            System.out.println("Order #" + order.getOrderId() + " processed successfully");
+            System.out.println("✅ [ORDER] Order #" + order.getOrderId() + " completed successfully");
         } catch(InterruptedException e) {
-            System.err.println("Order processing interrupted for order #" + order.getOrderId());
+            System.err.println("❌ [ORDER] Processing interrupted for order #" + order.getOrderId());
             Thread.currentThread().interrupt();
         }
     }

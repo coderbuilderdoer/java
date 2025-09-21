@@ -11,15 +11,14 @@ public class NotificationSender extends Thread{
     @Override
     public void run() {
         try{
-            System.out.println("Sending notification for order #" + order.getOrderId() + " on thread: " + Thread.currentThread().getName());
+            System.out.println("📱 [NOTIFY] Sending notification for order #" + order.getOrderId() + " (Thread: " + Thread.currentThread().getName() + ")");
             Thread.sleep(1000); // Simulate notification sending time
 
             // Send notification
-            System.out.println("Notification sent for order #" + order.getOrderId() +
-                    ": Your order status is now '" + order.getStatus() + "'");
+            System.out.println(" [NOTIFY] Order #" + order.getOrderId() + " status: " + order.getStatus());
 
         } catch(InterruptedException e) {
-            System.err.println("Notification sending interrupted for order #" + order.getOrderId());
+            System.err.println("❌ [NOTIFY] Notification interrupted for order #" + order.getOrderId());
             Thread.currentThread().interrupt();
         }
     }

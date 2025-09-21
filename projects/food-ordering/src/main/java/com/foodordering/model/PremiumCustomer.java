@@ -26,13 +26,22 @@ public class PremiumCustomer extends Customer {
         }
 
         setBalance(getBalance() - finalAmount);
-        System.out.println("Premium discount applied: $");
+        System.out.println("Premium discount applied: -$" + String.format("%.2f", discount));
 
         return finalAmount;
     }
 
     @Override
     public String toString() {
-        return "Premium" + super.toString();
+        return String.format(
+            "┌─ Premium Customer ──────────────┐%n" +
+            "│ ID: %-4d                        │%n" +
+            "│ Name: %-25s │%n" +
+            "│ Email: %-24s │%n" +
+            "│ Balance: $%-20.2f  │%n" +
+            "│ Discount: 10%%                   │%n" +
+            "└─────────────────────────────────┘",
+            getId(), getName(), getEmail(), getBalance()
+        );
     }
 }

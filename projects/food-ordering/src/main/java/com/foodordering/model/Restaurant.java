@@ -77,10 +77,13 @@ public class Restaurant {
     // Override toString() method
     @Override
     public String toString() {
-        return "Restaurant{" +
-                "id = " + id +
-                ", name = '" + name + '\'' +
-                ", rating = " + rating +
-                '}';
+        return String.format(
+            "┌─ Restaurant ────────────────────┐%n" +
+            "│ ID: %-4d                        │%n" +
+            "│ Name: %-25s │%n" +
+            "│ Rating: ⭐ %-20.1f │%n" +
+            "└─────────────────────────────────┘",
+            id, name, rating
+        );
     }
 }
